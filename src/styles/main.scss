@@ -2,12 +2,15 @@
 
 @use 'var';
 
+@use './normalize';
+
 body {
-  font-family: 'Unbounded', sans-serif;
+  font-family: var.$font;
   font-weight: 400;
-  margin: 0;
-  background-color: #1F2023;
+  background-color: #1f2023;
+  color: var.$lightColor;
 }
+
 a {
   text-decoration: none;
 }
@@ -17,10 +20,13 @@ a {
   align-items: stretch;
   justify-content: space-between;
   height: 71px;
-  position: relative;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
   &::before {
-    content: '';
     display: block;
+    content: '';
     width: 100%;
     height: 27px;
     position: absolute;
@@ -42,7 +48,6 @@ a {
       background-image: url('../images/header-bottom-left.svg');
       background-repeat: no-repeat;
       background-size: cover;
-      background-size: 100%;
       position: absolute;
       bottom: -24px;
       left: 0;
@@ -73,7 +78,6 @@ a {
       background-image: url('../images/header-bottom-right.svg');
       background-repeat: no-repeat;
       background-size: cover;
-      background-size: 100%;
       position: absolute;
       bottom: -24px;
       right: 0;
@@ -88,7 +92,164 @@ a {
       left: -67px;
       top: 0;
     }
-    
   }
+}
 
+.container {
+  width: 100%;
+  max-width: 1830px;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.banner {
+  display: flex;
+  background-image: url('../images/bg-banner.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50px;
+  padding: 100px 50px;
+  margin-top: 135px;
+  gap: 50px;
+  &__main {
+    flex-basis: 61%;
+  }
+  &__info {
+    flex-basis: calc(39% - 50px);
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    position: relative;
+    border: 1px solid var.$lightColor;
+    border-right: none;
+    border-radius: 20px 0px 0px 20px;
+    height: 151px;
+    margin-right: 50px;
+    padding: 30px;
+    transition: var.$tr;
+    &:hover {
+      background-color: var.$accentColor;
+      border-color: var.$accentColor;
+      &::after {
+        opacity: 1;
+      }
+      .banner__decor {
+        background-color: var.$accentColor;
+        border-color: var.$accentColor;
+      }
+    }
+    & + & {
+      margin-top: 20px;
+    }
+    &::before {
+      top: 0;
+      right: -80px;
+      position: absolute;
+      display: block;
+      content: '';
+      width: 80px;
+      height: 153px;
+      background-image: url('../images/banner-info-decor.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    &::after {
+      top: 0;
+      right: -80px;
+      position: absolute;
+      display: block;
+      content: '';
+      width: 80px;
+      height: 153px;
+      background-image: url('../images/banner-info-decor-hover.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      opacity: 0;
+      transition: var.$tr;
+    }
+  }
+  &__text {
+    font-weight: 250;
+    font-size: 24px;
+    line-height: 1.1;
+
+    span {
+      display: block;
+      font-weight: 700;
+      font-size: 32px;
+      margin-top: 12px;
+    }
+  }
+  &__decor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0px;
+    right: -86px;
+    border: 1px solid var.$lightColor;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    transition: var.$tr;
+  }
+  &__title {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    white-space: wrap;
+  }
+  &__button {
+    cursor: pointer;
+    background-color: var.$accentColor;
+    color: var.$lightColor;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.1;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-radius: 20px;
+    padding: 30px 30px 30px 30px;
+    width: 100%;
+    border: 1px solid var.$accentColor;
+    transition: var.$tr;
+    @media (hover: hover) {
+      &:hover {
+        border: 1px solid var.$accentColor;
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+.banner-box {
+  border: 1px solid var.$lightColor;
+  border-radius: 20px;
+  position: relative;
+  padding: 30px 332px 30px 30px;
+  &__title {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 30px;
+  }
+  &__text {
+    font-size: 20px;
+    line-height: 1.5;
+    font-weight: 400;
+  }
+  &__image {
+    position: absolute;
+    &_electroguitar {
+      top: -68px;
+      right: -20px;
+    }
+  }
 }
