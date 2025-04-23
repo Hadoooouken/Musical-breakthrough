@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Музыкальный Прорыв</title>
   </head>
+
   <body>
     <header class="header">
       <a href="#" class="header__logo">
@@ -20,19 +21,22 @@
     <div class="container">
       <section class="banner">
         <div class="banner__main">
-          <h1 class="banner__title">Обучение игре на электрогитаре</h1>
-          <div class="banner__box banner-box">
-            <h2 class="banner-box__title">О направлении</h2>
-            <p class="banner-box__text">
-              Вы научитесь играть на электрогитаре под чутким руководством преподавателя, даже если
-              раньше никогда не держали электрогитару в руках. С нами возможно всё!
-            </p>
-            <img
-              class="banner-box__image banner-box__image_electroguitar"
-              src="./images/areas/electroguitar.png"
-              alt="гитара"
-            />
+          <div>
+            <h1 class="banner__title">Обучение игре на электрогитаре</h1>
+            <div class="banner__box banner-box">
+              <h2 class="banner-box__title">О направлении</h2>
+              <p class="banner-box__text">
+                Вы научитесь играть на электрогитаре под чутким руководством преподавателя, даже
+                если раньше никогда не держали электрогитару в руках. С нами возможно всё!
+              </p>
+              <img
+                class="banner-box__image banner-box__image_electroguitar"
+                src="./images/areas/electroguitar.png"
+                alt="гитара"
+              />
+            </div>
           </div>
+
           <button class="banner__button">Записаться</button>
         </div>
         <div class="banner__info">
@@ -60,6 +64,68 @@
               <img src="./images/banner-icons/wallet-icon.svg" alt="" />
             </div>
           </div>
+        </div>
+      </section>
+      <ul class="tag">
+        <li class="tag__text">Импульсивность</li>
+        <li class="tag__text">Чистота</li>
+        <li class="tag__text">Ритмичность</li>
+        <li class="tag__text">Оптимальность</li>
+        <li class="tag__text">Динамичность</li>
+        <li class="tag__text">Синхронизация</li>
+        <li class="tag__text">Скорость</li>
+        <li class="tag__text">Интонация</li>
+        <li class="tag__text">Драйв</li>
+        <li class="tag__text">Креатив</li>
+      </ul>
+      <section class="course">
+        <div class="course__wrapper">
+          <h2 class="course__title">Преподаватели</h2>
+          <div class="course-control course__control">
+            <div class="swiper-button-prev course-control__prev"></div>
+            <div class="swiper-button-next course-control__next"></div>
+          </div>
+        </div>
+        <div class="course__content">
+          <div class="swiper slider-teacher course__teacher">
+            <div class="swiper-wrapper">
+              <div class="slider-teacher__item swiper-slide">
+                <img
+                  class="slider-teacher__image"
+                  src="./images/teachers/Ivan-Varfolameev.png"
+                  alt="Иван Варфоламеев"
+                />
+                <p class="slider-teacher__name">Иван Варфоламеев</p>
+              </div>
+              <div class="slider-teacher__item swiper-slide">
+                <img
+                  class="slider-teacher__image"
+                  src="./images/teachers/Ivan-Varfolameev.png"
+                  alt="Иван Варфоламеев"
+                />
+                <p class="slider-teacher__name">Иван Варфоламеев</p>
+              </div>
+              <div class="slider-teacher__item swiper-slide">
+                <img
+                  class="slider-teacher__image"
+                  src="./images/teachers/Ivan-Varfolameev.png"
+                  alt="Иван Варфоламеев"
+                />
+                <p class="slider-teacher__name">Иван Варфоламеев</p>
+              </div>
+              <div class="slider-teacher__item swiper-slide">
+                <img
+                  class="slider-teacher__image"
+                  src="./images/teachers/Ivan-Varfolameev.png"
+                  alt="Иван Варфоламеев"
+                />
+                <p class="slider-teacher__name">Иван Варфоламеев</p>
+              </div>
+              <!-- Закрытие предыдущего div для item -->
+            </div>
+          </div>
+          <div class="__coourse__schedule"></div>
+          <!-- Этот div должен быть внутри swiper-wrapper, если он предназначен для контента слайдера -->
         </div>
       </section>
     </div>
