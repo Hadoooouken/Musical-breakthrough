@@ -10,6 +10,7 @@ body {
   background-color: #1f2023;
   color: var.$lightColor;
   overflow-x: hidden;
+  line-height: 1.1;
 }
 
 a {
@@ -19,7 +20,6 @@ a {
 .course__title {
   font-weight: 700;
   font-size: 32px;
-  line-height: 1.1;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
@@ -188,8 +188,6 @@ a {
   &__text {
     font-weight: 250;
     font-size: 24px;
-    line-height: 1.1;
-
     span {
       display: block;
       font-weight: 700;
@@ -213,7 +211,6 @@ a {
   &__title {
     font-size: 64px;
     font-weight: 700;
-    line-height: 1.1;
     margin-bottom: 20px;
     white-space: wrap;
   }
@@ -223,7 +220,6 @@ a {
     color: var.$lightColor;
     font-weight: 600;
     font-size: 20px;
-    line-height: 1.1;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     border-radius: 20px;
@@ -249,7 +245,6 @@ a {
   &__title {
     font-weight: 400;
     font-size: 24px;
-    line-height: 1.1;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-bottom: 30px;
@@ -280,7 +275,6 @@ a {
   &__text {
     font-weight: 250;
     font-size: 24px;
-    line-height: 1.1;
     color: var.$greyColor;
     position: relative;
     border: 1px solid var.$greyColor;
@@ -315,6 +309,8 @@ a {
 .course {
   display: flex;
   gap: 70px;
+  margin-bottom: 100px;
+  // потом убрать
   &__wrapper {
     flex-basis: 395px;
   }
@@ -336,19 +332,23 @@ a {
 .course-control {
   display: flex;
   align-items: center;
-
   gap: 20px;
-
-  &__prev, &__next {
+  &__prev,
+  &__next {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 70px;
     height: 70px;
     border: 1px solid var.$lightColor;
+    background-color: transparent;
     border-radius: 100%;
     position: inherit;
-
+    transition: var.$tr;
+    &:hover {
+      background-color: var.$accentColor;
+      border-color: var.$accentColor;
+    }
     &::after {
       content: '';
       display: block;
@@ -365,5 +365,122 @@ a {
 
   &__next::after {
     background-image: url('../images/ui/arrow-right.svg');
+  }
+}
+
+.slider-teacher {
+  &__item {
+    height: 707px;
+    background-color: var.$darkColor;
+    border: 1px solid var.$darkColor;
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+    transition: var.$tr;
+    &:hover {
+      border-color: var.$accentColor;
+      .slider-teacher__name,
+      .slider-teacher__grid {
+        opacity: 1;
+      }
+    }
+  }
+  &__grid {
+    max-width: none;
+    opacity: 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: var.$tr;
+  }
+  &__image {
+    width: 100%;
+    height: 637px;
+    object-fit: cover;
+    position: absolute;
+    bottom: 0;
+  }
+  &__name {
+    width: 100%;
+    font-weight: 400;
+    font-size: 24px;
+    color: var.$lightColor;
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    opacity: 0;
+    transition: var.$tr;
+    z-index: 1;
+    &::before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 637px;
+      position: absolute;
+      background: linear-gradient(42deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 59.08%);
+      left: -30px;
+      bottom: -30px;
+      background-repeat: no-repeat;
+      z-index: -1;
+    }
+  }
+}
+
+.coourse__schedule {
+  margin-top: 42px;
+}
+
+.accordion {
+  &__button {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var.$lightColor;
+    font-weight: 400;
+    font-size: 32px;
+    color: var.$accentColor;
+    border-radius: 20px;
+    border: none;
+    margin-bottom: 22px;
+    padding: 20px 20px 20px 30px;
+    &::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 50px;
+      background-image: url('../images/ui/minus-button.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
+    &.active {
+      &::after {
+        background-image: url('../images/ui/plus-button.svg');
+      }
+    }
+  }
+  &__list {
+    background-color: var.$lightColor;
+    // padding: 20px 20px 30px 70px;
+    padding: 30px 50px;
+    border-radius: 20px;
+    // overflow: hidden;
+  }
+  &__item {
+    font-weight: 300;
+    font-size: 24px;
+    color: var.$darkColor;
+    border-bottom: 1px solid var.$greyColor;
+    padding-bottom: 20;
+    &:not(:last-child) {
+      margin-bottom: 44px;
+    }
+  }
+  &__panel {
+    max-height: 0;
+    transition: max-height 0.3s ease-out;
+    overflow: hidden;
   }
 }
