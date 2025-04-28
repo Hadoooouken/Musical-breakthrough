@@ -18,7 +18,7 @@ a {
 }
 
 .course__title {
-  font-weight: 700;
+  font-weight: 1000;
   font-size: 32px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -118,7 +118,7 @@ a {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  border-radius: 50px;
+  border-radius: var.$br-max;
   padding: 100px 50px;
   margin-top: 135px;
   margin-bottom: 150px;
@@ -212,7 +212,6 @@ a {
     font-size: 64px;
     font-weight: 700;
     margin-bottom: 20px;
-    white-space: wrap;
   }
   &__button {
     cursor: pointer;
@@ -222,7 +221,7 @@ a {
     font-size: 20px;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    border-radius: 20px;
+    border-radius: var.$br-min;
     padding: 30px 30px 30px 30px;
     width: 100%;
     min-height: 130px;
@@ -239,7 +238,7 @@ a {
 
 .banner-box {
   border: 1px solid var.$lightColor;
-  border-radius: 20px;
+  border-radius: var.$br-min;
   position: relative;
   padding: 30px 332px 30px 30px;
   &__title {
@@ -278,7 +277,7 @@ a {
     color: var.$greyColor;
     position: relative;
     border: 1px solid var.$greyColor;
-    border-radius: 50px;
+    border-radius: var.$br-max;
     padding: 10px 20px;
 
     &::before {
@@ -309,7 +308,7 @@ a {
 .course {
   display: flex;
   gap: 70px;
-  margin-bottom: 100px;
+  margin-bottom: 166px;
   // потом убрать
   &__wrapper {
     flex-basis: 395px;
@@ -373,7 +372,7 @@ a {
     height: 707px;
     background-color: var.$darkColor;
     border: 1px solid var.$darkColor;
-    border-radius: 50px;
+    border-radius: var.$br-max;
     position: relative;
     overflow: hidden;
     transition: var.$tr;
@@ -441,32 +440,30 @@ a {
     font-weight: 400;
     font-size: 32px;
     color: var.$accentColor;
-    border-radius: 20px;
+    border-radius: var.$br-min;
     border: none;
     margin-bottom: 22px;
     padding: 20px 20px 20px 30px;
     &::after {
       content: '';
       display: block;
-      width: 50px;
-      height: 50px;
-      background-image: url('../images/ui/minus-button.svg');
+      width: 21px;
+      height: 21px;
+      background-image: url('../images/ui/plus-button.svg');
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center;
     }
     &.active {
       &::after {
-        background-image: url('../images/ui/plus-button.svg');
+        background-image: url('../images/ui/minus-button.svg');
       }
     }
   }
   &__list {
     background-color: var.$lightColor;
-    // padding: 20px 20px 30px 70px;
     padding: 30px 50px;
-    border-radius: 20px;
-    // overflow: hidden;
+    border-radius: var.$br-min;
   }
   &__item {
     font-weight: 300;
@@ -482,5 +479,194 @@ a {
     max-height: 0;
     transition: max-height 0.3s ease-out;
     overflow: hidden;
+  }
+}
+
+.steps {
+  max-width: 1920px;
+  margin: 0 auto;
+  border: 1px solid var.$greyColor;
+  border-radius: var.$br-max;
+  padding-top: 150px;
+  padding-bottom: 150px;
+  margin-bottom: 150px;
+  background: linear-gradient(180deg, #1f2023 0%, #7027e2 50%, #1f2023 100%);
+  &__list {
+    margin-top: 42px;
+    gap: 30px;
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  &__item {
+    padding: 36px 25px 30px 30px;
+    background-color: white;
+    border: 1px solid var.$lightColor;
+    border-radius: var.$br-max;
+  }
+  &__icon {
+    margin-bottom: 26px;
+  }
+  &__text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var.$darkColor;
+  }
+}
+
+.result {
+  margin-bottom: 150px;
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+    margin-top: 45px;
+  }
+  &__item {
+    border-radius: var.$br-min;
+    padding: 22px;
+    background-color: var.$lightColor;
+    &--subgrid {
+      grid-column: 2 / 5;
+      display: grid;
+      grid-template-columns: subgrid;
+      align-items: center;
+      grid-template-rows: 130px;
+    }
+  }
+  &__text {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 20px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var.$darkColor;
+
+    span {
+      background-color: var.$accentColor;
+      border-radius: 10px;
+      padding: 10px;
+      width: fit-content;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 1.1;
+      color: var.$lightColor;
+    }
+  }
+  &__button {
+    grid-column: 2 / 4;
+    align-self: stretch;
+    cursor: pointer;
+    background-color: var.$accentColor;
+    color: var.$lightColor;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-radius: var.$br-min;
+    padding: 30px 30px 30px 30px;
+    border: 1px solid var.$accentColor;
+    transition: var.$tr;
+    @media (hover: hover) {
+      &:hover {
+        background-color: transparent;
+        color: var.$accentColor;
+      }
+    }
+  }
+}
+
+.areas {
+  margin-bottom: 150px;
+  &__link {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 1.5;
+    color: var.$lightColor;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var.$accentColor;
+    background-color: transparent;
+    padding: 30px;
+    transition: var.$tr;
+    border-radius: 0;
+    position: relative;
+
+    &:hover {
+      background-color: #7027e2;
+      border-radius: 10px;
+      &::before {
+        opacity: 1;
+        transform: scale(1);
+      }
+      &::after {
+        transform: rotate(45deg);
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+      border-bottom: none;
+    }
+    &::before {
+      position: absolute;
+      display: block;
+      content: '';
+      background-repeat: no-repeat;
+      background-size: contain;
+      transition: var.$tr;
+      transform: scale(0);
+      left: 770px;
+      opacity: 0;
+    }
+    &--acoustic-guitar {
+      &::before {
+        width: 534px;
+        height: 284px;
+        background-image: url('../images/areas/acoustic-guitar.png');
+        top: calc(50% - 142px);
+     
+      }
+    }
+    &--drums {
+      &::before {
+        width: 398px;
+        height: 350px;
+        background-image: url('../images/areas/drums.png');
+        top: calc(50% - 175px);
+      }
+    }
+    &--violin {
+      &::before {
+        width: 547px;
+        height: 429px;
+        background-image: url('../images/areas/violin.png');
+        top: calc(50% - 214px);
+      }
+    }
+    &--bas-guitar {
+      &::before {
+        width: 530px;
+        height: 375px;
+        background-image: url('../images/areas/bas-guitar.png');
+        top: calc(50% - 187px);
+      }
+    }
+    &::after {
+      display: block;
+      content: '';
+      width: 26px;
+      height: 26px;
+      background-image: url('../images/ui/arrow-rotate.svg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      transition: var.$tr;
+    }
   }
 }
