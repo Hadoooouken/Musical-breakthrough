@@ -45,7 +45,7 @@ a {
   }
 
   &__logo {
-    padding: 17px 45px 0px 45px;
+    padding: 20px 44px 0px 40px;
     background-color: var.$accentColor;
     border-radius: 10px 0 0 0;
     position: relative;
@@ -76,7 +76,7 @@ a {
     color: var.$lightColor;
     font-size: 20px;
     background-color: var.$accentColor;
-    padding: 17px 45px 0px 14px;
+    padding: 20px 31px 0px 14px;
     border-radius: 0 10px 0 0;
     position: relative;
     &::before {
@@ -104,6 +104,21 @@ a {
   }
 }
 
+.logo {
+  &--max {
+    svg {
+      width: 400px;
+      height: 31px;
+    }
+  }
+  &--min {
+    svg {
+      width: 296px;
+      height: 22px;
+    }
+  }
+}
+
 .container {
   width: 100%;
   max-width: 1830px;
@@ -121,8 +136,8 @@ a {
   border-radius: var.$br-max;
   padding: 100px 50px;
   margin-top: 135px;
-  margin-bottom: 150px;
-  gap: 50px;
+  margin-bottom: 148px;
+  gap: 38px;
   &__main {
     display: flex;
     flex-direction: column;
@@ -141,7 +156,7 @@ a {
     border-right: none;
     border-radius: 20px 0px 0px 20px;
     height: 151px;
-    margin-right: 50px;
+    margin-right: 46px;
     padding: 30px;
     transition: var.$tr;
     &:hover {
@@ -159,7 +174,7 @@ a {
       margin-top: 20px;
     }
     &::before {
-      top: 0;
+      top: -1px;
       right: -80px;
       position: absolute;
       display: block;
@@ -171,7 +186,7 @@ a {
       background-size: contain;
     }
     &::after {
-      top: 0;
+      top: -1px;
       right: -80px;
       position: absolute;
       display: block;
@@ -201,7 +216,7 @@ a {
     justify-content: center;
     position: absolute;
     top: 0px;
-    right: -86px;
+    right: -82px;
     border: 1px solid var.$lightColor;
     width: 50px;
     height: 50px;
@@ -222,7 +237,7 @@ a {
     letter-spacing: 0.05em;
     text-transform: uppercase;
     border-radius: var.$br-min;
-    padding: 30px 30px 30px 30px;
+    padding: 26px 48px 30px 30px;
     width: 100%;
     min-height: 130px;
     border: 1px solid var.$accentColor;
@@ -240,7 +255,7 @@ a {
   border: 1px solid var.$lightColor;
   border-radius: var.$br-min;
   position: relative;
-  padding: 30px 332px 30px 30px;
+  padding: 28px 332px 28px 24px;
   &__title {
     font-weight: 400;
     font-size: 24px;
@@ -256,8 +271,8 @@ a {
   &__image {
     position: absolute;
     &_electroguitar {
-      top: -68px;
-      right: -20px;
+      top: -70px;
+      right: -10px;
     }
   }
 }
@@ -308,14 +323,13 @@ a {
 .course {
   display: flex;
   gap: 70px;
-  margin-bottom: 166px;
-  // потом убрать
+  margin-bottom: 148px;
   &__wrapper {
     flex-basis: 395px;
   }
   &__content {
     flex-basis: calc(100% - 395px - 70px);
-    width: calc(100% - 395px - 70px);
+    width: calc(100% - 395px - 45px);
   }
   &__control {
     margin-top: 40px;
@@ -407,7 +421,7 @@ a {
     color: var.$lightColor;
     position: absolute;
     bottom: 30px;
-    left: 30px;
+    left: 22px;
     opacity: 0;
     transition: var.$tr;
     z-index: 1;
@@ -443,7 +457,7 @@ a {
     border-radius: var.$br-min;
     border: none;
     margin-bottom: 22px;
-    padding: 20px 20px 20px 30px;
+    padding: 32px 44px 28px 22px;
     &::after {
       content: '';
       display: block;
@@ -462,7 +476,7 @@ a {
   }
   &__list {
     background-color: var.$lightColor;
-    padding: 30px 50px;
+    padding: 30px 43px;
     border-radius: var.$br-min;
   }
   &__item {
@@ -631,7 +645,6 @@ a {
         height: 284px;
         background-image: url('../images/areas/acoustic-guitar.png');
         top: calc(50% - 142px);
-     
       }
     }
     &--drums {
@@ -669,4 +682,57 @@ a {
       transition: var.$tr;
     }
   }
+}
+
+.footer {
+  background-color: var.$darkColor;
+  border-radius: 20px;
+  padding: 30px 50px;
+  margin-bottom: 30px;
+  &__text {
+    color: var.$lightColor;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    span {
+      color: var.$accentColor;
+    }
+  }
+}
+
+.social {
+  display: flex;
+  justify-content: end;
+  gap: 8px;
+  &__item {
+  }
+  &__link {
+    display: block;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-color: var.$lightColor;
+    background-position: center;
+
+    &:hover {
+      background-color: var.$accentColor;
+      svg {
+        fill: black;
+      }
+    }
+    &--wa {
+      background-image: url('../images/social/wa.svg');
+    }
+    &--vk {
+      background-image: url('../images/social/vk.svg');
+    }
+    &--tg {
+      background-image: url('../images/social/tg.svg');
+    }
+  }
+}
+
+.footer__copy {
+  text-align: end;
 }
