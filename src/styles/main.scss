@@ -390,6 +390,8 @@ a {
     position: relative;
     overflow: hidden;
     transition: var.$tr;
+    transform: scale(0);
+    transform: scale(10);
     &:hover {
       border-color: var.$accentColor;
       .slider-teacher__name,
@@ -503,7 +505,7 @@ a {
   border-radius: var.$br-max;
   padding-top: 150px;
   padding-bottom: 150px;
-  margin-bottom: 150px;
+  margin-bottom: 144px;
   background: linear-gradient(180deg, #1f2023 0%, #7027e2 50%, #1f2023 100%);
   &__list {
     margin-top: 42px;
@@ -517,9 +519,10 @@ a {
     background-color: white;
     border: 1px solid var.$lightColor;
     border-radius: var.$br-max;
+    box-sizing: border-box;
   }
   &__icon {
-    margin-bottom: 26px;
+    margin-bottom: 28px;
   }
   &__text {
     font-weight: 400;
@@ -539,7 +542,7 @@ a {
   }
   &__item {
     border-radius: var.$br-min;
-    padding: 22px;
+    padding: 28px 22px 21px 22px;
     background-color: var.$lightColor;
     &--subgrid {
       grid-column: 2 / 5;
@@ -554,7 +557,7 @@ a {
     flex-direction: column;
     align-items: start;
     justify-content: center;
-    gap: 20px;
+    gap: 28px;
     font-weight: 400;
     font-size: 16px;
     line-height: 1.5;
@@ -596,6 +599,9 @@ a {
 
 .areas {
   margin-bottom: 150px;
+  // display: flex;
+  // flex-direction: column;
+  // gap: 50px;
   &__link {
     display: flex;
     justify-content: space-between;
@@ -603,7 +609,7 @@ a {
     font-size: 32px;
     line-height: 1.5;
     color: var.$lightColor;
-    margin-top: 50px;
+    // margin-top: 50px;
     margin-bottom: 30px;
     border-bottom: 1px solid var.$accentColor;
     background-color: transparent;
@@ -623,7 +629,9 @@ a {
         transform: rotate(45deg);
       }
     }
-
+    &:first-of-type {
+      margin-top: 50px;
+    }
     &:last-child {
       margin-bottom: 0;
       border-bottom: none;
@@ -685,9 +693,12 @@ a {
 }
 
 .footer {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   background-color: var.$darkColor;
   border-radius: 20px;
-  padding: 30px 50px;
+  padding: 28px 32px 30px 45px;
   margin-bottom: 30px;
   &__text {
     color: var.$lightColor;
@@ -698,6 +709,10 @@ a {
       color: var.$accentColor;
     }
   }
+  &__copy {
+    justify-self: end;
+    align-self: end;
+  }
 }
 
 .social {
@@ -707,32 +722,51 @@ a {
   &__item {
   }
   &__link {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 44px;
     height: 44px;
     border-radius: 10px;
-    background-repeat: no-repeat;
     background-color: var.$lightColor;
-    background-position: center;
-
+    transition: 1s;
     &:hover {
       background-color: var.$accentColor;
-      svg {
-        fill: black;
+      &::after {
+        background-color: var.$lightColor;
       }
     }
+    &::after {
+      content: '';
+      display: block;
+      mask: center center / 100% no-repeat;
+      background-color: var.$accentColor;
+      -webkit-mask: center center / 100% no-repeat;
+      // transition: 1s;
+    }
     &--wa {
-      background-image: url('../images/social/wa.svg');
+      &::after {
+        width: 28px;
+        height: 28px;
+        mask-image: url('../images/social/wa.svg');
+        -webkit-mask-image: url('../images/social/wa.svg');
+      }
     }
     &--vk {
-      background-image: url('../images/social/vk.svg');
+      &::after {
+        width: 33px;
+        height: 19px;
+        mask-image: url('../images/social/vk.svg');
+        -webkit-mask-image: url('../images/social/vk.svg');
+      }
     }
     &--tg {
-      background-image: url('../images/social/tg.svg');
+      &::after {
+        width: 26px;
+        height: 22px;
+        mask-image: url('../images/social/tg.svg');
+        -webkit-mask-image: url('../images/social/tg.svg');
+      }
     }
   }
-}
-
-.footer__copy {
-  text-align: end;
 }
