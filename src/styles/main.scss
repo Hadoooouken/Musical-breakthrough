@@ -33,6 +33,9 @@ a {
   top: 0;
   width: 100%;
   z-index: 999;
+  @media (max-width: var.$tablet-res) {
+    height: 66px;
+  }
   &::before {
     display: block;
     content: '';
@@ -42,13 +45,24 @@ a {
     top: 0;
     z-index: -1;
     background-color: var.$accentColor;
+    @media (max-width: var.$tablet-res) {
+      top: -2px;
+    
+    }
   }
-
   &__logo {
     padding: 20px 44px 0px 40px;
     background-color: var.$accentColor;
     border-radius: 10px 0 0 0;
     position: relative;
+    @media (max-width: var.$desktop-res) {
+      padding: 20px 35px 0px 20px;
+    
+    }
+    @media (max-width: var.$tablet-res) {
+      padding: 18px 25px 0px 15px;
+    
+    }
     &::before {
       content: '';
       display: block;
@@ -70,6 +84,12 @@ a {
       position: absolute;
       right: -67px;
       top: 0;
+      @media (max-width: var.$tablet-res) {
+        height: 66px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        right: -60px;
+      }
     }
   }
   &__link {
@@ -79,6 +99,22 @@ a {
     padding: 20px 31px 0px 14px;
     border-radius: 0 10px 0 0;
     position: relative;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    transition: var.$tr;
+    @media (max-width: var.$desktop-res) {
+      padding: 20px 20px 0px 14px;
+    }
+    @media (hover: hover) {
+      &:hover {
+        text-decoration-color: var.$accentColor;
+      }
+    }
+    @media (max-width: var.$tablet-res) {
+      font-size: 16px;
+     padding: 20px 15px 0px 4px;
+    
+    }
     &::before {
       content: '';
       display: block;
@@ -100,6 +136,12 @@ a {
       position: absolute;
       left: -67px;
       top: 0;
+      @media (max-width: var.$tablet-res) {
+        height: 66px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        left: -60px;
+      }
     }
   }
 }
@@ -109,6 +151,9 @@ a {
     svg {
       width: 400px;
       height: 31px;
+      @media (max-width: var.$desktop-res) {
+        width: clamp(300px, 39vw, 400px);
+      }
     }
   }
   &--min {
@@ -123,8 +168,12 @@ a {
   width: 100%;
   max-width: 1830px;
   margin: 0 auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 45px;
+  padding-right: 45px;
+  @media (max-width: var.$desktop-res) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 .banner {
@@ -159,15 +208,17 @@ a {
     margin-right: 46px;
     padding: 30px;
     transition: var.$tr;
-    &:hover {
-      background-color: var.$accentColor;
-      border-color: var.$accentColor;
-      &::after {
-        opacity: 1;
-      }
-      .banner__decor {
+    @media (hover: hover) {
+      &:hover {
         background-color: var.$accentColor;
         border-color: var.$accentColor;
+        &::after {
+          opacity: 1;
+        }
+        .banner__decor {
+          background-color: var.$accentColor;
+          border-color: var.$accentColor;
+        }
       }
     }
     & + & {
@@ -208,6 +259,7 @@ a {
       font-weight: 700;
       font-size: 32px;
       margin-top: 12px;
+      // line-height: 1.1;
     }
   }
   &__decor {
@@ -282,10 +334,11 @@ a {
   display: flex;
   gap: 65px;
   animation: move-left 20s infinite linear alternate;
-  &:hover {
-    animation-play-state: paused;
+  @media (hover: hover) {
+    &:hover {
+      animation-play-state: paused;
+    }
   }
-
   &__text {
     font-weight: 250;
     font-size: 24px;
@@ -358,9 +411,11 @@ a {
     border-radius: 100%;
     position: inherit;
     transition: var.$tr;
-    &:hover {
-      background-color: var.$accentColor;
-      border-color: var.$accentColor;
+    @media (hover: hover) {
+      &:hover {
+        background-color: var.$accentColor;
+        border-color: var.$accentColor;
+      }
     }
     &::after {
       content: '';
@@ -392,11 +447,13 @@ a {
     transition: var.$tr;
     transform: scale(0);
     transform: scale(10);
-    &:hover {
-      border-color: var.$accentColor;
-      .slider-teacher__name,
-      .slider-teacher__grid {
-        opacity: 1;
+    @media (hover: hover) {
+      &:hover {
+        border-color: var.$accentColor;
+        .slider-teacher__name,
+        .slider-teacher__grid {
+          opacity: 1;
+        }
       }
     }
   }
@@ -599,9 +656,6 @@ a {
 
 .areas {
   margin-bottom: 150px;
-  // display: flex;
-  // flex-direction: column;
-  // gap: 50px;
   &__link {
     display: flex;
     justify-content: space-between;
@@ -609,7 +663,6 @@ a {
     font-size: 32px;
     line-height: 1.5;
     color: var.$lightColor;
-    // margin-top: 50px;
     margin-bottom: 30px;
     border-bottom: 1px solid var.$accentColor;
     background-color: transparent;
@@ -617,16 +670,17 @@ a {
     transition: var.$tr;
     border-radius: 0;
     position: relative;
-
-    &:hover {
-      background-color: #7027e2;
-      border-radius: 10px;
-      &::before {
-        opacity: 1;
-        transform: scale(1);
-      }
-      &::after {
-        transform: rotate(45deg);
+    @media (hover: hover) {
+      &:hover {
+        background-color: #7027e2;
+        border-radius: 10px;
+        &::before {
+          opacity: 1;
+          transform: scale(1);
+        }
+        &::after {
+          transform: rotate(45deg);
+        }
       }
     }
     &:first-of-type {
@@ -694,12 +748,19 @@ a {
 
 .footer {
   display: grid;
-  grid-template-rows: repeat(2, 1fr);
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr 450px;
+  gap: 10px 20px;
   background-color: var.$darkColor;
   border-radius: 20px;
   padding: 28px 32px 30px 45px;
   margin-bottom: 30px;
+  // display: grid;
+  // grid-template-rows: repeat(2, 1fr);
+  // grid-template-columns: repeat(2, 1fr);
+  // background-color: var.$darkColor;
+  // border-radius: 20px;
+  // padding: 28px 32px 30px 45px;
+  // margin-bottom: 30px;
   &__text {
     color: var.$lightColor;
     font-weight: 400;
@@ -719,8 +780,6 @@ a {
   display: flex;
   justify-content: end;
   gap: 8px;
-  &__item {
-  }
   &__link {
     display: flex;
     align-items: center;
@@ -729,20 +788,23 @@ a {
     height: 44px;
     border-radius: 10px;
     background-color: var.$lightColor;
-    transition: 1s;
-    &:hover {
-      background-color: var.$accentColor;
-      &::after {
-        background-color: var.$lightColor;
+    transition: var.$tr;
+    @media (hover: hover) {
+      &:hover {
+        background-color: var.$accentColor;
+        &::after {
+          background-color: var.$lightColor;
+        }
       }
     }
+
     &::after {
       content: '';
       display: block;
       mask: center center / 100% no-repeat;
       background-color: var.$accentColor;
       -webkit-mask: center center / 100% no-repeat;
-      // transition: 1s;
+      transition: var.$tr;
     }
     &--wa {
       &::after {
