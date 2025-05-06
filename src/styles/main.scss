@@ -11,6 +11,7 @@ body {
   color: var.$lightColor;
   overflow-x: hidden;
   line-height: 1.1;
+  outline: 1px solid red;
 }
 
 a {
@@ -732,7 +733,14 @@ a {
   margin-bottom: 150px;
   container-type: inline-size;
   container-name: result;
-  @container result (max-width: 1024px) {
+  @media (max-width: var.$r_desc) {
+    margin-bottom: 100px;
+  }
+  @media (max-width: var.$r_tab) {
+    margin-bottom: 80px;
+    gap: 20px;
+  }
+  @container result (max-width: 920px) {
     .result__list {
       grid-template-columns: repeat(2, 1fr);
       padding-bottom: 140px;
@@ -742,22 +750,24 @@ a {
       grid-column: 2 / 3;
     }
     .result__button {
+      grid-column: auto;
       position: absolute;
       bottom: 0px;
       left: 0;
       right: 0;
-      width: calc(100% + 100% + 30px);
-    }
-  }
-  @container result(max-width: 760px) {
-    .result__button {
-      width: calc(100% + 100% + 20px);
     }
   }
   @container result (max-width: 600px) {
     .result__button {
       font-size: clamp(14px, 3cqi, 20px);
-    
+    }
+  }
+  @container result (max-width: 450px) {
+    .result__list {
+      grid-template-columns: 1fr;
+    }
+    .result__item--subgrid {
+      grid-column: auto;
     }
   }
 
@@ -766,13 +776,6 @@ a {
     grid-template-columns: repeat(4, 1fr);
     gap: 50px;
     margin-top: 45px;
-    @media (max-width: var.$r_desc) {
-      margin-bottom: 100px;
-      gap: clamp(20px, 2.8vw, 30px);
-    }
-    @media (max-width: var.$r_tab) {
-      margin-bottom: 80px;
-    }
   }
   &__item {
     border-radius: var.$br-min;
@@ -797,6 +800,7 @@ a {
     flex-direction: column;
     align-items: start;
     justify-content: center;
+    word-break: break-word;
     gap: 28px;
     font-weight: 400;
     font-size: 16px;
