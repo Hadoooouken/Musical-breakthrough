@@ -34,10 +34,16 @@ const button = document.querySelector('.accordion__button');
 
 button.addEventListener('click', () => {
   button.classList.toggle('active');
-  const panel = button.nextElementSibling;
+  
+  const panel = document.querySelector('.accordion__panel');
   if (panel.style.maxHeight) {
     panel.style.maxHeight = null;
   } else {
-    panel.style.maxHeight = panel.scrollHeight + 'px';
+    panel.style.maxHeight = `${panel.scrollHeight}px`;
   }
 });
+
+const bannerButton = document.querySelector('.banner__button')
+console.log(bannerButton)
+const modal = document.querySelector('.popup')
+console.log(modal)
