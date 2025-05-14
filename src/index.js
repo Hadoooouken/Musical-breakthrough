@@ -37,13 +37,16 @@ button.addEventListener('click', () => {
   
   const panel = document.querySelector('.accordion__panel');
   if (panel.style.maxHeight) {
+    console.log(panel.style.maxHeight)
     panel.style.maxHeight = null;
   } else {
     panel.style.maxHeight = `${panel.scrollHeight}px`;
   }
 });
 
-const bannerButton = document.querySelector('.banner__button')
-console.log(bannerButton)
-const modal = document.querySelector('.popup')
-console.log(modal)
+// const bannerButton = document.querySelector('.banner__button')
+// console.log(bannerButton)
+// const modal = document.querySelector('.popup')
+// console.log(modal)
+
+console.log(2 && 1 && null && 0 && undefined)

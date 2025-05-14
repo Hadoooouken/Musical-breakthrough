@@ -1,11 +1,15 @@
 {
   "name": "musik-proriv",
+  "homepage": "https://Hadoooouken.github.io/Musical-breakthrough",
   "scripts": {
-    "build": "webpack",
-    "dev": "webpack serve --env develop"
+    "build": "webpack --mode productiong",
+    "dev": "webpack serve --env develop",
+    "predeploy": "npm run build",
+  "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
     "css-loader": "^7.1.2",
+    "gh-pages": "^6.3.0",
     "html-loader": "^5.1.0",
     "html-webpack-plugin": "^5.6.3",
     "loader": "^2.1.1",
